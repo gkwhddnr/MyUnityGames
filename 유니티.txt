@@ -1,0 +1,92 @@
+유니티
+
+
+1.1-1 프로젝트 제작의 이해
+※ 효율적인 개발 방식 : 각 직군별 결과물 확인 및 적용이 타 직군에 의존적 x 독립적 형태 진행!	=> 결과물 퀄리티 ↑, 개발 기간 단축에 인한 제작비 부담 감소 => 효율적 개발 
+아트
+  ↑
+기획자	→	결과물
+   ↓
+프로그래머
+
+
+1.1-2 직군
+ⅰ. PD(Project Director), Director, PM(Project Manager)
+PD : 콘텐츠 전체 방향 결정하는 역할 (영화감독과 비슷)
+Director : 콘텐츠 제작 방향을 결정하고 책임 및 관리 감독하는 역할 (= 파트장)
+PM : 프로젝트 일정과 팀원 간의 의사결정 조율하는 역할
+
+ⅱ. 기획 : 콘텐츠 설계도 만드는 사람 (시나리오 기획, 시스템 기획, 콘텐츠 기획, 레벨 디자인 기획 등)
+ⅲ. 프로그램 : 기획 결과물 + 아트 결과물 바탕으로 실제 동작하는 콘텐츠 구현하는 직군, 클라이언트와 서버로 나뉨.
+클라이언트 : 엔진, 콘텐츠 제작에 도움을 주는 저작 도구 개발, (이야기 구성 및 기획자 작업) 스크립터, (사용자 상호작용) UI(User Interface) 작업으로 나뉨
+서버 : 사용자 통신 네트워크와 사용자 데이터 기록하는 DB, 해킹 위험 방어하는 보안 작업으로 나뉨.
+
+ⅳ. 아트 : 콘텐츠 디자인 관련 요소 만드는 직군, TA(Technical Artist, 기술 직군과 아트 직군의 불필요한 의사소통 줄여 콘텐츠 품질 향상시키는 역할) 직군도 생김
+
+
+1.3-2 유니티 화면 구성 알아보기
+1. 씬(Scene) : 게임 오브젝트을 확인하거나 조작할 수 있는 창
+2. 하이어라키(Hierarchy) 뷰 : 씬 뷰에서 보이는 게임 오브젝트 목록 관리하는 창
+3. 인스펙터(Inspector) 뷰 : 게임 오브젝트가 어떠한 컴포넌트로 이뤄져 있는지 확인하고 수정할 수 있는 창
+4. 프로젝트(Project) 뷰 : 콘텐츠 제작에 필요한 파일, 리소스 등 관리하는 창
+5. 게임(Game) 뷰 : 제작하는 콘텐츠 실행했을 때 보이는 창
+
+1.3-3 유니티 기본 성능
+- 마우스 우클릭 + q(화면 아래로),w(확대),e(화면 위로),a(화면 왼쪽),s(축소),d(화면 오른쪽)
+- alt + 마우스 좌클릭 : 씬 장면 중심으로 화면 돌리기
+- 렉트(rect) 툴 : 스케일 툴과 달리 크기가 한 쪽으로 변함, 주로 2D 오브젝트 조정할 때 주로 사용
+- 오브젝트 선택하고 ctrl + d : 오브젝트 복제 (언리얼 엔진의 ctrl + c, ctrl + v의 압축버전)
+- 버텍스 스냅핑(Vertex Snapping) : 두 오브젝트가 있을 때 정확하게 붙일 수 있는 기능, v키를 누른채 오브젝트의 꼭지점에 커서를 이동시키면 기즈모(Gizmo)가 해당 꼭지점으로 이동, 다른 오브젝트의 꼭지점과 붙음.
+
+
+
+2. 슈팅게임 만들기
+※ 3D의 특징 : Persp(Perspective, 원근감)과 ISO(isometric, 쿼터 뷰(직교 모드, 원근감이 없는 상태))
+※ Main Camera 오브젝트 종류
+- Camera Component : 카메라
+- Audio Listener : 사람의 귀 (★씬에 단 하나만 있어야 함!)
+- Projection 속성 : 렌즈(투영), 화면에 보이는 영상을 원근감 있게 표현할 것인지 지정하는 속성
+- Size 속성 : 카메라 세로 크기의 절반 (단위 : m)
+- 조명(Directional Light) 설정 : 3D에서 필요하며 2D에서는 경우에 따라 쓰이기 함 (거의 안씀)
+- 해상도(Resolution) 설정 : Game 창의 툴파에 있음. 디폴트로 "Free Aspect"로 설정되어 있으며 "+" 버튼을 눌러 사용자 지정 설정이 가능함.
+
+2-1. 플레이어 이동 제작
+※ GameObject, MonoBehaviour 클래스를 상속받는 스크립트(PlayerMove) 필요	-> Player Component에 드래그
+- 벡터의 정규화(Normalize) : 벡터 크기를 1로 만들어주는 동작	-> 우리의 속도(m/s)로 사용
+★ 라이프사이클 함수(Life Cycle Function) : 일어나는 횟수, 일어나는 때를 아는지 여부	ex) Start, Update, OnDestroy 함수
+★ deltaTime : delta는 "변화된 것"을 의미(=시간이 변한 값), 시스템 간의 동기화를 위해 사용
+- 스크립트 코드에 Update() 함수에 다음 코드를 입력
+transform.Translate(Vector3.right (or left, forward, back, up, down) * 5 * Time.deltaTime);		-> deltatime만큼 방향키값 증가
+
+- 사용자 입력 처리코드 : float h = Input.GetAxis("Horizontal");		// A, D		float v = Input.GetAxis("Vertical");	// W, S
+★ 다음 사용자 입력 처리코드를 빌드한 후 실행하면 다음 오류가 발생할 수 있음 (안 발생하면 정상실행이 되고 있다는 뜻임).
+InvalidOperationException: You are trying to read Input using the UnityEngine.Input class, but you have switched active Input handling to Input System package in Player Settings.
+UnityEngine.Internal.InputUnsafeUtility.GetAxis (System.String axisName) (at <7392f0fe1c014b608788bdeecdaad64d>:0)
+UnityEngine.Input.GetAxis (System.String axisName) (at <7392f0fe1c014b608788bdeecdaad64d>:0)
+PlayerMove.Update () (at Assets/Scripts/PlayerMove.cs:19)
+이 의미는 "Unity Input System을 사용하도록 설정했지만, 코드에서는 기존의 UnityEngine.Input 클래스를 사용하려고 해서 충돌이 발생하고 있다"이므로 크래쉬 문제가 발생한다.
+따라서 이를 해결하려면 Edit -> Project Settings -> Player로 이동하고 Other Settings > Active Input Handling 항목을 찾아 드롭다운에서 "Both" 또는 "Input Manager"로 변경하고 재시작해야한다.
+
+- 방향 만들기
+Vector3 dir = new Vector3(h, v, 0);
+transform.Translate(dir * speed * Time.deltaTime);
+
+- 사용자 입력 처리를 P = P0 + vt 공식으로 변경 (위 코드의 사용자 입력 처리 코드들과 방향 만들기의 첫번째 코드는 동일)
+transform.position += dir * speed * Time.deltaTime;
+
+※ SDK와 API의 차이 (둘다 유니티에 내포되어 있음)
+SDK : 개발에 필요한 모든 기능을 제조사에서 이미 다 만들어 제공하는 것
+API : 건드리면 안되는 중요한 기능 외 콘텐츠 제작에 필요한 기능을 공개하는 것, 주로 뒤에서 Reference, Document와 같은 단어들이 붙음.
+
+
+2-2. 총알 제작
+※ GameObject, MonoBehaviour 클래스를 상속받는 스크립트 필요(Bullet)	-> Bullet Component에 드래그
+- 위 플레이어 이동 제작과 코드는 동일하나 사용자 입력 처리만 제거한다.
+방향 구하기 : Vector3 dir = Vector3.up;
+이동, P = P0 + vt 로 구현 : transform.position += dir * speed * Time.deltaTime;
+
+
+2-3. 사용자 발사 버튼을 눌러 총알 발사하기
+※ GameObject, MonoBehaviour 클래스를 상속받는 스크립트 필요(PlayerFire)	-> Player Component에 드래그
+★ Project 창에 폴더를 만들고 Hierarchy 창에 있는 컴포넌트를 폴더에 드래그하면 링크가 걸림(파란색으로 표시됨).		-> 폴더에 저장되어 있다는 뜻이므로 삭제해도 됨.
+※ 버튼 이벤트 : GetButtonDown(누를 때), GetButtonUp(땔 때), GetButton(계속 누를때)
