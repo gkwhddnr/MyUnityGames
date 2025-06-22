@@ -90,3 +90,30 @@ API : 건드리면 안되는 중요한 기능 외 콘텐츠 제작에 필요한 
 ※ GameObject, MonoBehaviour 클래스를 상속받는 스크립트 필요(PlayerFire)	-> Player Component에 드래그
 ★ Project 창에 폴더를 만들고 Hierarchy 창에 있는 컴포넌트를 폴더에 드래그하면 링크가 걸림(파란색으로 표시됨).		-> 폴더에 저장되어 있다는 뜻이므로 삭제해도 됨.
 ※ 버튼 이벤트 : GetButtonDown(누를 때), GetButtonUp(땔 때), GetButton(계속 누를때)
+
+2-4. 적 이동 제작과 충돌
+※ GameObject, MonoBehaviour 클래스 상속받는 스크립트 필요(Enemy)	-> Enemy Component에 드래그
+방향 구하기 : Vector3 dir = Vector3.down;
+이동, P = P0 + vt 로 구현 : transform.position += dir * speed * Time.deltaTime;
+※ 충돌체 : 두 개이상의 게임 오브젝트의 몸체 필요, 박스 콜라이더(box Collider)에 있음.
+※ 리자드바디(RigidBody) : 움직이는 물체와 움직이지 않는 물체를 구분하는 것
+★★ 결론 : 유니티에서 충돌하기 위해서 두 개 이상의 물체가 충돌체를 갖고 있어야 하며, 둘 중 하나느 꼭 리지드바디가 있어야 함!
+★★★ 이벤트 함수 : 구현부에서 물체가 부딪히면 알아서 호출하는 함수, 접두어 On 사용, private void OnCollisionEnter(Collision collision), private void OnCollisionStay(Collision collision), private void OnCollisionExit(Collision collision) 등이 있음, 구현 방식은 "너 죽고 나 죽자"
+
+2-5. 적 자동 생성
+Prefabs 폴더(게임 오브젝트를 파일로 만든 것)로 Enemy Object 이동, MonoBehaviour 상속받는 스크립트 필요 (EnemyManager)
+현재시간, 일정시간, 적 공장 변수를 선언하고 현재시간(+= Time.deltaTime) > 일정시간이 되면 적을 생산하고 현재시간을 초기화한다.
++ 적의 생성 시간을 랜덤으로 설정 	-> Start() 함수 안에 "현재시간 = UnityEngine.Random.Range(minTime, maxTime);" 구현,  Update()함수 안에 "일정시간 = UnityEngine.Random.Range(minTime, maxTime);" 구현
+
+2-6. 적 인공지능(플레이어 방향 찾기)
+GameObject 객체를 하나 생성하고 Player 객체의 방향을 반환해 그쪽으로 가게 만든다.
+GameObject target = GameObject.Find("Player");
+// 방향구하기
+dir = target.transform.position - transform.position;
+// 방향 크기 1로 설정
+dir.Normalize();
+
+2-7. DestroyZone과 충돌 감지
+충돌감지하는 DestroyZone 객체를 하나 만들고 is Trigger (물리적 충돌 효과 발생 x, 영역 감지 센서 역할) 체크 후 리지드바디 컴포넌트를 만들어 Is Kinematic(충돌할 수 있는 물체로 알려주되, 물리적 행동x) 체크, MonoBehavior 상속받는 스크립트 필요 (DestroyZone)
+각 DestroyZone을 나뉘어서 실행하면 겹친 부분 때문에 없어진다. 이를 해결하려면
+객체 클릭 -> Inspector -> Layer -> Add Layer -> DestroyZone을 입력 후 모든 DestroyZone 객체를 Destroy Layer로 바꾼 후 Project Setting에서 Physics -> Layer Collision Matrix에서 자기 자신 충돌 체크박스를 해제한다. 마찬가지로 Player, Enemy, Bullet도 같은 방법으로 실행하여 자기들끼리 충돌하면 사라지지 않도록 Layer를 만들고 Collision 체크박스를 해제한다.
