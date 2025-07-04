@@ -4,8 +4,12 @@ public class Enemy : MonoBehaviour
 {
     // 필요 속성: 이동속도
     public float speed = 5.0f;
-
+    GameObject player;
     Vector3 dir;
+
+    // 폭발 주소(외부값 삽입)
+    public GameObject explosionFactory;
+
     void Start()
     {
         // 값 중 하나 랜덤 설정
@@ -37,6 +41,12 @@ public class Enemy : MonoBehaviour
     // 충돌시작
     private void OnCollisionEnter(Collision collision)
     {
+        // 폭발 효과 객체 생성
+        GameObject explosion = Instantiate(explosionFactory);
+
+        // 폭발 효과 발생
+        explosion.transform.position = transform.position;
+
         // 너 죽고
         Destroy(collision.gameObject);
         // 나 죽자

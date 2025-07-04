@@ -1,4 +1,6 @@
 유니티
+★★★ GameAIfy API Key : 4175d8ded1aa4906898fc3954b1a2ece
+★★★ GameAIfy Secret Key : 4ff3ca1db76642a09b237ab9e3d1a85f
 
 
 1.1-1 프로젝트 제작의 이해
@@ -117,3 +119,32 @@ dir.Normalize();
 충돌감지하는 DestroyZone 객체를 하나 만들고 is Trigger (물리적 충돌 효과 발생 x, 영역 감지 센서 역할) 체크 후 리지드바디 컴포넌트를 만들어 Is Kinematic(충돌할 수 있는 물체로 알려주되, 물리적 행동x) 체크, MonoBehavior 상속받는 스크립트 필요 (DestroyZone)
 각 DestroyZone을 나뉘어서 실행하면 겹친 부분 때문에 없어진다. 이를 해결하려면
 객체 클릭 -> Inspector -> Layer -> Add Layer -> DestroyZone을 입력 후 모든 DestroyZone 객체를 Destroy Layer로 바꾼 후 Project Setting에서 Physics -> Layer Collision Matrix에서 자기 자신 충돌 체크박스를 해제한다. 마찬가지로 Player, Enemy, Bullet도 같은 방법으로 실행하여 자기들끼리 충돌하면 사라지지 않도록 Layer를 만들고 Collision 체크박스를 해제한다.
+
+
+
+3-1. 알파버전 만들기
+- Scene 폴더 목적 : 다운로드한 애셋 사용법을 데모 씬으로 제작해 배포
+- Prefabs 폴더 : 게임오브젝트를 애셋으로 만든 것
+애셋 스토어에 애셋을 다운로드 후 유니티 프로젝트에 임포트한 다음 Prefabs 폴더의 애셋을 Player에 장착하고 부모(Player)에 있는 Mesh Renderer, Mesh Filter 컴포넌트를 제거한다.
+
+3-2. 충돌효과 삽입
+충돌 효과 애셋을 다운로드 한후 Enemy.cs에서 폭발 효과 발생하는 코드 작성
+// 폭발 효과 객체 생성
+GameObject explosion = Instantiate(explosionFactory);
+
+// 폭발 효과 발생
+explosion.transform.position = transform.position;
+
+3-3. 배경 삽입
+애셋 배경을 inspector탭에서 확인하면 ★Wrap Mode가 있다.
+기본설정 : Repeat
+Clamp : 원래 크기보다 더 많은 부분을 그리려고 할 때 크기를 넘어가는 부분을 잘려지게 그리게 하는 설정
+★ offset : 배경 스크롤의 한 장을 회전시키는 것
+-> 3D Quad 객체와 Material 객체를 만들어 Material에 배경 애셋을 Base Map으로 드래그한 후 Material 객체를 3D Quad의 Element 0으로 드래그시킨다.
+
+Background 스크립트를 만들어 시간이 지날때마다 위에서 아래로 배경 스크롤이 이동하도록 작성한다.
+ Vector2 direction = Vector2.up; // offset은 x,y값만 존재하므로 Vector2 객체를 써야 함.
+ bgMaterial.mainTextureOffset += direction * scrollSpeed * Time.deltaTime;
+
+3-4. 사운드 추가
+폭발 효과, Bullet Component, Background 객체에 각각 Audio Resource 컴포넌트를 추가한 후 Audio Resource란에 각 컴포넌트 요소를 넣는다. 단, Background만 Loop를 체크한다.
