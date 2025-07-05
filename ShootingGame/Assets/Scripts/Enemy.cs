@@ -41,6 +41,21 @@ public class Enemy : MonoBehaviour
     // 충돌시작
     private void OnCollisionEnter(Collision collision)
     {
+        // 에너미 잡을 때마다 현재 점수 표시
+        // ScoreManager.Instance.SetScore(ScoreManager.Instance.GetScore() + 1);
+        ScoreManager.Instance.Score++;
+
+        /*
+        // 씬에서 ScoreManager 객체 찾기
+        GameObject smObject = GameObject.Find("ScoreManager");
+
+        // ScoreManager 게임 오브젝트를 얻어오기
+        ScoreManager sm = GetComponent<ScoreManager>();
+
+        // ScoreManager의 Get/Set 함수 설정
+        sm.SetScore(sm.GetScore() + 1);
+        */
+
         // 폭발 효과 객체 생성
         GameObject explosion = Instantiate(explosionFactory);
 
