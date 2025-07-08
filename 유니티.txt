@@ -265,3 +265,46 @@ public int Score
 
 Enemy.cs의 ScoreManager.Instance.SetScore(ScoreManager.Instance.GetScore() + 1); 코드 부분을 다음과 같이 수정
 -> ScoreManager.Instance.Score++;
+
+4-2. 오브젝트 풀(Object Pool)을 이용한 메모리 관리
+★ 오브젝트 풀 : 객체를 풀(pool)로 만든 것
+커넥션 풀(Connection Pool) : 네트워크 연결에 관련된 풀을 미리 잡아 놓은 것
+상호작용(충돌)이 일어나는 모든 cs 파일에 객체 대신 GameObject 배열로 생성하여 오브젝트 풀에 관리하도록 수정한다.	->	 충돌이 일어나면 배열의 경우 for문을 사용하여 하나씩 비활성화된 것들을 활성화시키고, 충돌이 끝나면 오브젝트 풀에 자원을 반납하도록 한다.
+
+※ 라이프사이클 함수 호출 순서
+Awake 	->	OnEnable(객체가 활성화될 때마다 호출됨, but 무조건 Start 함수가 호출되는 것이 아니므로 OnEnable -> Update 식으로 실행됨, Start 함수는 실행 중 단 한 번만 실행함.) 	->	Start	->	Update	->	OnDestroy
+
+★★ 메모리 관리 방법으로 배열을 이용한 코드와 연결리스트를 활용한 코드가 있는데 배열의 경우 빠른 삽입과 검색이 가능하지만, 배열 데이터가 많을수록 느려지는 단점이 있다. 이를 해결하기 위해서 리스트를 사용하며 검색이 느리지만 빠른 삽입/삭제 속도가 빠르다.
+
+4-3. 모바일 조이스틱 입력 대응하기
+프리팹(Prefab) : 게임 오브젝트를 애셋으로 만드는 것
+프리팹 인스턴스(Prefab Instance) : 프리팹을 사용하기 위해 씬에 등록한 객체
+패킹(packing) : 프리팹을 만드는 과정
+언패킹(unpacking) : 프리팹을 되돌리는 과정
+	※ Unpack Prefab vs Unpack Prefab Completely
+		Unpack Prefab : 자식 객체에 대한 언패킹 고려 x
+		Unpack Prefab Completely : 프리팹 인스턴스가 포함하고 있는 자식 객체도(nested prefab) 프리팹 인스턴스가 있는 경우까지 모두 언패킹하는 기능
+콜백함수(callback) : 다른 객체에게 하도록 하고, 그 일이 끝나면 그 객체가 끝났다고 알려주는 함수
+
+4-4. PC 및 모바일 빌드
+빌드(Build) : 실행할 수 있는 형태로 프로젝트를 내보내기 하겠다는 의미	=> 실행 파일 만들기
+※ PC 환경 파이프라인(작업 진행할 때의 공정 단계) 빌드
+	1단계 : 씬 파일 등록
+		[File] - [Build Profiles] 클릭	->	Add Open Scenes 버튼을 클릭해 씬 파일을 등록하거나 씬 파일을 Scenes In Build에 드래그 앤 드롭하기
+	2단계 : 플랫폼 전환 및 플랫폼 환경 설정
+		안드로이드 전환 :	[Switch Platform] 버튼 클릭	->	[Player Settings] 버튼을 눌러 Player 설정창을 띄움.
+		해상도 설정 :  [Player Settings] 에서 Resolution and Presentation 설정에서 Fullscreen Mode를 "Windowed", Default Window Width(Height)를 640 x 960(예시)으로 설정
+	3단계 : 빌드
+		Build : 실행 파일만 만드는 기능
+		Build And Run : 빌드가 끝나면 실행시켜주는 기능
+		[Build]를 눌러 build 폴더를 만든 후 그 안에 저장하도록 한다.
+
+※ 모바일 환경 빌드 (안드로이드 빌드를 위해 안드로인드 SDK가 설치되어 있어야함)
+	1단계 : 씬 파일 등록(PC와 동일)
+	2단계 : 플랫폼 전환 및 플랫폼 환경 설정
+		안드로이드 전환 :	Android 선택 후 [Switch Platform] 버튼 클릭	->	[Player Settings] 버튼을 눌러 Player 설정창을 띄움.
+		세로 화면으로 게임 진행 : Resolution and Presentation 설정에서 Default Orientation을 "Portrait"로 설정, 가로 모드의 경우, "Landscape" 선택
+	3단계 : 빌드 (PC와 동일)
+	
+※ 게임 파일을 안드로이드 폰에 설치하는 방법 : USB 데이터 케이블로 폰에 넣거나 이메일로 파일 첨부하고 파일을 다운로드해 폰에 넣으면 됨	->	폰의 파일 관리 앱으로 해당 파일 선택해 설치함.
+
