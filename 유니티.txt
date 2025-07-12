@@ -308,3 +308,12 @@ Awake 	->	OnEnable(객체가 활성화될 때마다 호출됨, but 무조건 Sta
 	
 ※ 게임 파일을 안드로이드 폰에 설치하는 방법 : USB 데이터 케이블로 폰에 넣거나 이메일로 파일 첨부하고 파일을 다운로드해 폰에 넣으면 됨	->	폰의 파일 관리 앱으로 해당 파일 선택해 설치함.
 
+
+
++ 추가내용
+Window - Animation(ctrl + 6) : 애니메이션 동작 설정하는 곳
+Window - Animation - Animator : 애니메이션 동작 연결하는 곳 (Tree로 구성됨)
+	ex) Walking Tree -> Standing Tree, Standing Tree -> Walking Tree로 Make Transition을 각각 연결하면 해당 Tree에서 어떤 조건을 만족하면 다음 트리로 이동한다.
+
+※ 2D의 경우 x, y축을 가진 값 변수 2개를 선언해야 하고 (z축 제외), 각 Blend Tree 안의 Blend Type를 "2D Simple Directional", Parameters은 "x축 변수, y축 변수"를 설정해야 한다!
+※ 충돌 검사의 경우 Layer를 따로 추가하여 해당 Layer를 통과하지 못하도록 설정해야 한다!
