@@ -317,3 +317,9 @@ Window - Animation - Animator : 애니메이션 동작 연결하는 곳 (Tree로
 
 ※ 2D의 경우 x, y축을 가진 값 변수 2개를 선언해야 하고 (z축 제외), 각 Blend Tree 안의 Blend Type를 "2D Simple Directional", Parameters은 "x축 변수, y축 변수"를 설정해야 한다!
 ※ 충돌 검사의 경우 Layer를 따로 추가하여 해당 Layer를 통과하지 못하도록 설정해야 한다!
+
+★ FindFirstObjectByType<>와 GetComponent<>의 차이점
+FindFirstObjectByType<> : 하이어라키에 있는 모든 객체의 <> 컴포넌트를 검색해서 리턴 (다중객체)
+GetComponent<> : 해당 스크립트가 적용된 객체의 <> 컴포넌트를 검색해서 리턴 (단일객체)		=>	검색 범위 차이
+
+※ 다른 씬의 맵 이동 방법과 같은 신의 맵 이동하는 방법을 하나의 스크립트에 섞여스는 건 추천x (예를들어 bool 변수를 만들어서 true로 체크하면 씬의 이동이 일어나는데 왔다갔다하면 transform 변수가 파괴되다가 새로 생성되면서 false로 초기화하기 때문)
