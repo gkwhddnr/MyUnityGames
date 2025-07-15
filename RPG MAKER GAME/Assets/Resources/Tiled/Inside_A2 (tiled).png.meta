@@ -1,0 +1,650 @@
+fileFormatVersion: 2
+guid: 3901e70f78e89b843b2eb3cdaafae8c9
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -1197679018884334573
+    second: Inside_A2 (tiled)_0
+  - first:
+      213: -3371048868982349497
+    second: Inside_A2 (tiled)_1
+  - first:
+      213: 5178265270654707827
+    second: Inside_A2 (tiled)_2
+  - first:
+      213: 3264816131484095920
+    second: Inside_A2 (tiled)_3
+  - first:
+      213: 4013018272858081108
+    second: Inside_A2 (tiled)_4
+  - first:
+      213: 2339657210259570145
+    second: Inside_A2 (tiled)_5
+  - first:
+      213: -4925732622817434855
+    second: Inside_A2 (tiled)_6
+  - first:
+      213: -5562810323107832622
+    second: Inside_A2 (tiled)_7
+  - first:
+      213: -8795585030923497873
+    second: Inside_A2 (tiled)_8
+  - first:
+      213: -5372783356986859764
+    second: Inside_A2 (tiled)_9
+  - first:
+      213: 5785872173598736515
+    second: Inside_A2 (tiled)_10
+  - first:
+      213: 4466714438561858324
+    second: Inside_A2 (tiled)_11
+  - first:
+      213: -3999117949003064478
+    second: Inside_A2 (tiled)_12
+  - first:
+      213: -5875387836401684291
+    second: Inside_A2 (tiled)_13
+  - first:
+      213: -5975747717823200637
+    second: Inside_A2 (tiled)_14
+  - first:
+      213: 5470347054436071217
+    second: Inside_A2 (tiled)_15
+  - first:
+      213: 3797201006157803502
+    second: Inside_A2 (tiled)_16
+  - first:
+      213: 8753881028897318429
+    second: Inside_A2 (tiled)_17
+  - first:
+      213: -6638805902259195705
+    second: Inside_A2 (tiled)_18
+  - first:
+      213: -2158913881254245769
+    second: Inside_A2 (tiled)_19
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Inside_A2 (tiled)_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 546
+        width: 23
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 31cf574274df06fe0800000000000000
+      internalID: -1197679018884334573
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Inside_A2 (tiled)_1
+      rect:
+        serializedVersion: 2
+        x: 19
+        y: 534
+        width: 24
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 74123db0ae0a731d0800000000000000
+      internalID: -3371048868982349497
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Inside_A2 (tiled)_2
+      rect:
+        serializedVersion: 2
+        x: 47
+        y: 527
+        width: 49
+        height: 49
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 378ad1af3d4ecd740800000000000000
+      internalID: 5178265270654707827
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Inside_A2 (tiled)_3
+      rect:
+        serializedVersion: 2
+        x: 102
+        y: 540
+        width: 84
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0b5131e49f4fe4d20800000000000000
+      internalID: 3264816131484095920
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Inside_A2 (tiled)_4
+      rect:
+        serializedVersion: 2
+        x: 200
+        y: 538
+        width: 31
+        height: 34
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4578bd67bda11b730800000000000000
+      internalID: 4013018272858081108
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Inside_A2 (tiled)_5
+      rect:
+        serializedVersion: 2
+        x: 239
+        y: 527
+        width: 49
+        height: 49
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1edf3b136d1287020800000000000000
+      internalID: 2339657210259570145
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Inside_A2 (tiled)_6
+      rect:
+        serializedVersion: 2
+        x: 6
+        y: 437
+        width: 86
+        height: 85
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 913e966f64844abb0800000000000000
+      internalID: -4925732622817434855
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Inside_A2 (tiled)_7
+      rect:
+        serializedVersion: 2
+        x: 97
+        y: 431
+        width: 45
+        height: 98
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2dc1842fb7decc2b0800000000000000
+      internalID: -5562810323107832622
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Inside_A2 (tiled)_8
+      rect:
+        serializedVersion: 2
+        x: 196
+        y: 439
+        width: 89
+        height: 85
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f6ecf00f30ecfe580800000000000000
+      internalID: -8795585030923497873
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Inside_A2 (tiled)_9
+      rect:
+        serializedVersion: 2
+        x: 8
+        y: 395
+        width: 29
+        height: 25
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c0fdaa7c00a0075b0800000000000000
+      internalID: -5372783356986859764
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Inside_A2 (tiled)_10
+      rect:
+        serializedVersion: 2
+        x: 47
+        y: 383
+        width: 49
+        height: 50
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3808b27461c8b4050800000000000000
+      internalID: 5785872173598736515
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Inside_A2 (tiled)_11
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 287
+        width: 96
+        height: 146
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 413869fbd15fcfd30800000000000000
+      internalID: 4466714438561858324
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Inside_A2 (tiled)_12
+      rect:
+        serializedVersion: 2
+        x: 3
+        y: 294
+        width: 90
+        height: 84
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 26b98c2e9674088c0800000000000000
+      internalID: -3999117949003064478
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Inside_A2 (tiled)_13
+      rect:
+        serializedVersion: 2
+        x: 101
+        y: 337
+        width: 39
+        height: 44
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: db070a554ed667ea0800000000000000
+      internalID: -5875387836401684291
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Inside_A2 (tiled)_14
+      rect:
+        serializedVersion: 2
+        x: 6
+        y: 245
+        width: 36
+        height: 38
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3820ccb8c11e11da0800000000000000
+      internalID: -5975747717823200637
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Inside_A2 (tiled)_15
+      rect:
+        serializedVersion: 2
+        x: 47
+        y: 239
+        width: 49
+        height: 50
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 13734c1b9a39aeb40800000000000000
+      internalID: 5470347054436071217
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Inside_A2 (tiled)_16
+      rect:
+        serializedVersion: 2
+        x: 97
+        y: 239
+        width: 45
+        height: 50
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: eefaac8523e52b430800000000000000
+      internalID: 3797201006157803502
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Inside_A2 (tiled)_17
+      rect:
+        serializedVersion: 2
+        x: 3
+        y: 147
+        width: 89
+        height: 91
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d16a47d6a680c7970800000000000000
+      internalID: 8753881028897318429
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Inside_A2 (tiled)_18
+      rect:
+        serializedVersion: 2
+        x: 99
+        y: 191
+        width: 89
+        height: 50
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7c0f21fa4393ed3a0800000000000000
+      internalID: -6638805902259195705
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Inside_A2 (tiled)_19
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 96
+        height: 145
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 77a4e2f634ff902e0800000000000000
+      internalID: -2158913881254245769
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      Inside_A2 (tiled)_0: -1197679018884334573
+      Inside_A2 (tiled)_1: -3371048868982349497
+      Inside_A2 (tiled)_10: 5785872173598736515
+      Inside_A2 (tiled)_11: 4466714438561858324
+      Inside_A2 (tiled)_12: -3999117949003064478
+      Inside_A2 (tiled)_13: -5875387836401684291
+      Inside_A2 (tiled)_14: -5975747717823200637
+      Inside_A2 (tiled)_15: 5470347054436071217
+      Inside_A2 (tiled)_16: 3797201006157803502
+      Inside_A2 (tiled)_17: 8753881028897318429
+      Inside_A2 (tiled)_18: -6638805902259195705
+      Inside_A2 (tiled)_19: -2158913881254245769
+      Inside_A2 (tiled)_2: 5178265270654707827
+      Inside_A2 (tiled)_3: 3264816131484095920
+      Inside_A2 (tiled)_4: 4013018272858081108
+      Inside_A2 (tiled)_5: 2339657210259570145
+      Inside_A2 (tiled)_6: -4925732622817434855
+      Inside_A2 (tiled)_7: -5562810323107832622
+      Inside_A2 (tiled)_8: -8795585030923497873
+      Inside_A2 (tiled)_9: -5372783356986859764
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

@@ -323,3 +323,62 @@ FindFirstObjectByType<> : 하이어라키에 있는 모든 객체의 <> 컴포�
 GetComponent<> : 해당 스크립트가 적용된 객체의 <> 컴포넌트를 검색해서 리턴 (단일객체)		=>	검색 범위 차이
 
 ※ 다른 씬의 맵 이동 방법과 같은 신의 맵 이동하는 방법을 하나의 스크립트에 섞여스는 건 추천x (예를들어 bool 변수를 만들어서 true로 체크하면 씬의 이동이 일어나는데 왔다갔다하면 transform 변수가 파괴되다가 새로 생성되면서 false로 초기화하기 때문)
+
+★ AudioManager Object를 따로 만들어서 관리하려는 경우, 스크립트 안에 Sound 클래스를 새로 만들고 AudioManager 클래스 안에 sound 배열 변수를 생성하고 빌드를 하면 오브젝트에 할당된 스크립트 안에 sound 배열이 표시되지 않는다. 이를 해결하려면 Sound 클래스 선언 위에 [System.Serializable]를 선언하고 	AudioManager 클래스 안에 sound 배열변수 선언위에  [SerializeField]를 선언해야한다!
+
+AudioManager.cs
+
+[System.Serializable]   
+public class Sound
+{
+    public string name;     // 사운드 이름
+
+    public AudioClip clip;  // 사운드 파일
+    private AudioSource source; // 사운드 플레이어
+
+    public float Volumn;
+    public bool loop;
+
+    public void SetSource(AudioSource source)
+    {
+        this.source = source;
+        this.source.clip = clip;
+        this.source.loop = loop;
+    }
+
+    public void Play()
+    {
+        source.Play();
+    }
+
+    public void Stop()
+    {
+        source.Stop();
+    }
+
+    public void SetLoop()
+    {
+        source.loop = true;
+    }
+
+    public void SetLoopCancel()
+    {
+        source.loop = false;
+    }
+
+    public void SetVolumn()
+    {
+        source.volume = Volumn;
+    }
+}
+
+public class AudioManager : MonoBehaviour
+{
+    static public AudioManager instance;
+
+    // 배열을 Unity안에 보이도록 만들어야 함.
+    [SerializeField]
+    public Sound[] sounds;
+...
+}
+
