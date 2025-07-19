@@ -13,7 +13,7 @@ public class CameraFollow : NetworkBehaviour
     public float cameraMoveSpeed = 10f;
     public float edgeSize = 20f;
 
-    // 카메라를 스무스하게 이동
+    // 자유 시점 -> 3인칭 시야로 이동하는 과정을 스무스하게 보여주기
     public float smoothLerpSpeed = 5f;
     private bool isReturningToPlayer = false;
 
@@ -43,15 +43,11 @@ public class CameraFollow : NetworkBehaviour
         if (Input.GetKeyDown(KeyCode.Y))
         {
             isFollowing = !isFollowing;
+
             if (isFollowing)
-            {
                 isReturningToPlayer = true;
-                // startReturnPosition = cameraTransform.position;
-            }
             else
-            {
                 isReturningToPlayer |= false;
-            }
         }
 
         if (isFollowing)

@@ -382,3 +382,10 @@ public class AudioManager : MonoBehaviour
 ...
 }
 
+★ IsOwner 와 싱글턴 패턴
+IsOwner : 멀티플레이어 네트어쿠 상에서 "이 오브젝트의 주인이 나인지" 확인하는 Network 내장 프로퍼티, NetworkBehaviour 내에서 주로 사용, 특정 오브젝트에만 적용
+싱글턴 패턴 : SW 디자인 패턴 중 하나로, 전역에서 단 하나의 인스턴스를 보장, MonoBehaviour 기반 매니저 클래스에서 사용, 전체 프로젝트 전역에 적용
+
+★ 변수형 ulong
+Unity Netcode에서 Client ID (플레이어 고유 식별번호)를 관리하는 자료형
+
