@@ -27,6 +27,9 @@ public class DoorInteract : NetworkBehaviour
         doorCollider = GetComponent<BoxCollider>();
         if (IsOwner)
             gameObject.layer = LayerMask.NameToLayer("Player");
+
+        if (DoorManager.Instance != null)
+            DoorManager.Instance.Register(gameObject);
     }
 
     // Update is called once per frame
@@ -81,7 +84,10 @@ public class DoorInteract : NetworkBehaviour
         }
         isOpen.Value = !isOpen.Value;
         doorCollider.enabled = !isOpen.Value;
-        Debug.Log($"[서버] 문 상태 변경: {(isOpen.Value ? "열림" : "닫힘")}");
+
+        // 플레이어에게 문 상태 알림
+        ShowDoorStatusClientRpc( isOpen.Value );
+
         // 대기 후 상태 풀기
         StartCoroutine(DoorCooldown());
     }
@@ -108,13 +114,34 @@ public class DoorInteract : NetworkBehaviour
     [ClientRpc]
     void DenyDoorCloseClientRpc(ClientRpcParams clientRpcParams = default)
     {
-        Debug.Log("<color=yellow> <System> 플레이어 근처에 있어서 문이 닫히지 않았습니다.</color>");
+        if(!IsOwner) return;
+
+        string message = "<color=yellow> 플레이어가 문 사이에 있어서 닫히지 않았습니다.</color>";
+        PersonalNotificationManager.Instance.ShowPersonalMessageClientRpc(message);
+
+    }
+
+    [ClientRpc]
+    void ShowDoorStatusClientRpc(bool doorOpened)
+    {
+        if (!IsOwner) return;
+
+        string message = doorOpened ? "<color=green> 문이 열렸습니다.</color>" : "<color=red> 문이 닫혔습니다.</color>";
+        PersonalNotificationManager.Instance.ShowPersonalMessageClientRpc(message);
     }
 
     void OnDrawGizmosSelected()
     {
         Gizmos.color = Color.red;
         Gizmos.DrawWireCube(detectionPoint != null ? detectionPoint.position : transform.position, detectionSize);
+    }
+
+    void OnDestroy()
+    {
+        if (DoorManager.Instance != null)
+        {
+            DoorManager.Instance.UnRegister(gameObject);
+        }
     }
 
 }
