@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class DoorManager : BaseManager<DoorInteract>
+public class DoorManager : BaseManager<DoorVisuals>
 {
     public static DoorManager Instance { get; private set; }
 
