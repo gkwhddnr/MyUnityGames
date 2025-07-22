@@ -6,7 +6,7 @@ using System.Collections;
 
 public class PersonalNotificationManager : NetworkBehaviour
 {
-    public static PersonalNotificationManager Instance { get; private set; }
+    public static PersonalNotificationManager Instance;
     public CanvasGroup canvasGroup;
     public Text personalNotificationText;
 
@@ -22,35 +22,30 @@ public class PersonalNotificationManager : NetworkBehaviour
         else Destroy(gameObject);
     }
 
+
     [ClientRpc]
     public void ShowPersonalMessageClientRpc(string message, ClientRpcParams clientRpcParams = default)
     {
         if (!IsOwner) return;  // 각 플레이어 자신에게만 동작
 
-        /*
-        StopAllCoroutines();
-        personalNotificationText.text = message;  
-        canvasGroup.alpha = 1f;
-        canvasGroup.gameObject.SetActive(true);
-        StartCoroutine(HideAfterTime());
-        */
-
         if (coroutine != null) StopCoroutine(coroutine);
         personalNotificationText.text = message;
-        coroutine = StartCoroutine(ShowMessage());
+        coroutine = StartCoroutine(DisplayRoutine());
     }
 
     public void ShowPersonalMessage(string message)
     {
         if (coroutine != null) StopCoroutine(coroutine);
         personalNotificationText.text = message;
-        coroutine = StartCoroutine(ShowMessage());
+        coroutine = StartCoroutine(DisplayRoutine());
     }
 
-    private IEnumerator ShowMessage()
+    private IEnumerator DisplayRoutine()
     {
-        canvasGroup.alpha = 1;
-        yield return new WaitForSeconds(2f);
-        canvasGroup.alpha = 0;
+        canvasGroup.alpha = 1f;
+        canvasGroup.gameObject.SetActive(true);
+        yield return new WaitForSeconds(3f);
+        canvasGroup.alpha = 0f;
+        canvasGroup.gameObject.SetActive(false);
     }
 }

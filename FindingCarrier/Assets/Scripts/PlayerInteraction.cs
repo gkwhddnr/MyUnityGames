@@ -8,12 +8,15 @@ public class PlayerInteraction : NetworkBehaviour
     public KeyCode interactKey = KeyCode.E;
 
     private bool canInteract = true;
+    private PersonalNotificationManager personalUI;
 
     public override void OnNetworkSpawn()
     {
-        if (!IsOwner)
+        if (IsOwner)
         {
-            enabled = false;
+            // 자기 개인 UI 가져오기
+            personalUI = GameObject.Find("TemporaryUI").GetComponentInChildren<PersonalNotificationManager>(true);
+            if (personalUI != null) personalUI.gameObject.SetActive(true);
         }
     }
 
@@ -43,5 +46,10 @@ public class PlayerInteraction : NetworkBehaviour
         canInteract = false;
         yield return new WaitForSeconds(1f);
         canInteract = true;
+    }
+
+    public PersonalNotificationManager GetPersonalUI()
+    {
+        return personalUI;
     }
 }

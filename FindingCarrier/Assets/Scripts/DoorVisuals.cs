@@ -145,17 +145,18 @@ public class DoorVisuals : NetworkBehaviour, IInteractable
     [ClientRpc]
     private void DenyCloseClientRpc(ClientRpcParams rpcParams = default)
     {
-        if (notificationManagerInstance != null && notificationManagerInstance.gameObject.activeInHierarchy)
-            notificationManagerInstance.ShowPersonalMessage("<color=yellow>플레이어가 문 사이에 있어서 닫히지 않았습니다.</color>");
+        var localPlayer = NetworkManager.Singleton.LocalClient.PlayerObject.GetComponent<PlayerInteraction>();
+        localPlayer?.GetPersonalUI()?.ShowPersonalMessage("<color=yellow>플레이어가 문 사이에 있어서 닫히지 않았습니다.</color>");
     }
 
     [ClientRpc]
     private void NotifyDoorStateClientRpc(bool isNowOpen, ClientRpcParams rpcParams = default)
     {
-        if (notificationManagerInstance != null && notificationManagerInstance.gameObject.activeInHierarchy)
+        var localPlayer = NetworkManager.Singleton.LocalClient.PlayerObject.GetComponent<PlayerInteraction>();
+        if (localPlayer != null)
         {
             string msg = isNowOpen ? "<color=green>문이 열렸습니다.</color>" : "<color=red>문이 닫혔습니다.</color>";
-            notificationManagerInstance.ShowPersonalMessage(msg);
+            localPlayer.GetPersonalUI()?.ShowPersonalMessage(msg);
         }
     }
 
